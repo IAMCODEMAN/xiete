@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xiete"
+version = "0.1.0"
+description = "XIETE - a terminal AI coding agent powered by smolagents CodeAgent"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "XIETE" }]
+keywords = ["ai", "agent", "cli", "code-agent", "smolagents", "llm", "terminal"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Code Generators",
+]
+dependencies = [
+    # 1.26 起官方将 OpenAIServerModel 更名为 OpenAIModel，因此锁定 >= 1.26
+    "smolagents>=1.26",
+    "rich>=13.7.0",
+    "prompt_toolkit>=3.0.43",
+    "python-dotenv>=1.0.1",
+    # CodeAgent 通过 OpenAIServerModel/OpenAIModel 访问 OpenAI 兼容接口
+    "openai>=1.40.0",
+]
+
+[project.scripts]
+xiete = "xiete.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["xiete*"]
+
+[tool.setuptools.package-data]
+xiete = ["py.typed"]
