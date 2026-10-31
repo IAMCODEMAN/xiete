@@ -1,16 +1,20 @@
-# XIETE
+# HOLYXIETE
 
-> **XIETE** —— 一个跑在终端里的 AI 编程智能体（CLI Code Agent）  
+**中文** · [English](README.en.md)
+
+> **HOLYXIETE** —— 一个跑在终端里的 AI 编程智能体（CLI Code Agent）  
 > 由 Hugging Face [smolagents](https://github.com/huggingface/smolagents) 的 `CodeAgent` 驱动：模型写出 Python 代码 → 在本地沙箱里直接执行 → 调用文件读写 / Shell 工具完成任务。
 
 ```
-██╗  ██╗██╗███████╗████████╗███████╗
-╚██╗██╔╝██║██╔════╝╚══██╔══╝██╔════╝
- ╚███╔╝ ██║█████╗     ██║   █████╗
- ██╔██╗ ██║██╔══╝     ██║   ██╔══╝
-██╔╝ ██╗██║███████╗   ██║   ███████╗
-╚═╝  ╚═╝╚═╝╚══════╝   ╚═╝   ╚══════╝
+██╗  ██╗ ██████╗ ██╗     ██╗   ██╗██╗  ██╗██╗███████╗████████╗███████╗
+██║  ██║██╔═══██╗██║     ╚██╗ ██╔╝╚██╗██╔╝██║██╔════╝╚══██╔══╝██╔════╝
+███████║██║   ██║██║      ╚████╔╝  ╚███╔╝ ██║█████╗     ██║   █████╗
+██╔══██║██║   ██║██║       ╚██╔╝   ██╔██╗ ██║██╔══╝     ██║   ██╔══╝
+██║  ██║╚██████╔╝███████╗   ██║   ██╔╝ ██╗██║███████╗   ██║   ███████╗
+╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝╚══════╝   ╚═╝   ╚══════╝
 ```
+
+> 命令行入口仍为 `xiete`（包名/命令未变，仅界面品牌显示为 HOLYXIETE）。
 
 当前版本：**v0.1.0**
 
@@ -232,7 +236,7 @@ XIETE_MODEL=qwen2.5-coder:14b
 ```bash
 xiete "把 src/utils.py 里的函数都加上类型注解"
 xiete "解释 ./app.py 的作用，输出 3 句话"
-xiete -m deepseek-chat "列出这个项目里所有的 TODO"
+xiete -m deepseek-v4-pro "列出这个项目里所有的 TODO"
 ```
 
 也可以从管道或文件读取任务：
@@ -286,7 +290,9 @@ xiete --help
 xiete-cli/
 ├── pyproject.toml         # 依赖项与 [project.scripts] xiete = "xiete.cli:main"
 ├── .env.example           # 环境变量配置模板
-├── README.md              # 本文档
+├── README.md              # 本文档（中文）
+├── README.en.md           # English documentation
+├── LICENSE                # MIT
 └── xiete/
     ├── __init__.py        # __version__ = "0.1.0"
     ├── cli.py             # 终端入口、REPL 循环、斜杠命令、参数解析
@@ -363,7 +369,7 @@ XIETE_SYSTEM_PROMPT=.\my_prompt.md
 ## 开发与测试
 
 ```bash
-git clone <repo> && cd xiete-cli
+git clone https://github.com/IAMCODEMAN/xiete.git && cd xiete-cli
 python -m venv .venv && source .venv/bin/activate
 pip install -e .
 
